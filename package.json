@@ -1,60 +1,25 @@
 {
-  "name": "lib",
-  "version": "0.19.0",
-  "description": "Library template with TypeScript",
-  "keywords": [
-    "template",
-    "library",
-    "typescript",
-    "github-actions"
-  ],
-  "private": true,
-  "main": "index.js",
-  "engines": {
-    "node": "^18.0.0"
-  },
-  "author": "ink8bit",
+  "name": "@jcbhmr/repo",
+  "version": "1.0.0",
+  "description": "desc",
+  "keywords": [],
+  "homepage": "https://jcbhmr.github.io/repo/",
+  "bugs": "https://github.com/jcbhmr/repo/issues",
+  "repository": "github:jcbhmr/repo",
   "license": "MIT",
+  "author": "Jacob Hummer <jcbhmr@outlook.com> (https://jcbhmr.me/)",
+  "type": "module",
+  "exports": {
+    ".": "./dist/index.js",
+    "./*.js": "./dist/*.js",
+    "./internal/*": null
+  },
   "scripts": {
-    "prebuild": "npm run types:check && npm run format && npm run lint && npm t",
-    "build": "npm run compile",
-    "compile": "babel src --extensions .js,.ts --ignore \"src/**/*.spec.js\",\"src/**/*.test.js\" --out-dir lib",
-    "types:check": "tsc",
-    "lint": "eslint --ext .js,.ts .",
-    "prettier": "prettier \"**/*.[j,t]s\"",
-    "format": "npm run prettier -- --write",
-    "format:check": "npm run prettier -- --list-different",
-    "test": "jest --forceExit",
-    "test:watch": "npm t -- --watch",
-    "test:ci": "npm t -- --config jest.config.ci.js",
-    "prepare": "husky install"
+    "build-docs": "typedoc",
+    "prepack": "tsc",
+    "start": "tsx --test --watch test/*.test.ts",
+    "pretest": "prettier --ignore-path .gitignore -w .",
+    "test": "tsc --noEmit && tsx --test test/*.test.ts"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ink8bit/ts-lib-template.git"
-  },
-  "bugs": {
-    "url": "https://github.com/ink8bit/ts-lib-template/issues"
-  },
-  "homepage": "https://github.com/ink8bit/ts-lib-template#readme",
-  "devDependencies": {
-    "@babel/cli": "^7.20.7",
-    "@babel/core": "^7.21.5",
-    "@babel/eslint-parser": "^7.21.8",
-    "@babel/plugin-transform-modules-commonjs": "^7.21.2",
-    "@babel/plugin-transform-runtime": "^7.21.4",
-    "@babel/preset-env": "^7.21.4",
-    "@babel/preset-typescript": "^7.18.6",
-    "@babel/runtime": "^7.21.0",
-    "@typescript-eslint/eslint-plugin": "^5.59.5",
-    "@typescript-eslint/parser": "^5.55.0",
-    "eslint": "^8.35.0",
-    "eslint-config-prettier": "^8.6.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "husky": "^8.0.3",
-    "jest": "^29.5.0",
-    "lint-staged": "^13.2.2",
-    "prettier": "^2.8.6",
-    "typescript": "^5.0.4"
-  }
+  "devDependencies": {}
 }
