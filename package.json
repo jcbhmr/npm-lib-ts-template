@@ -21,5 +21,10 @@
     "pretest": "prettier --ignore-path .gitignore -w .",
     "test": "tsc --noEmit && tsx --test test/*.test.ts"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "typedocOptions": {
+    "entryPoints": ["src/index.ts"],
+    "out": "docs/dist",
+    "skipErrorChecking": true
+  }
 }
